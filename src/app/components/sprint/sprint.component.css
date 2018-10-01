@@ -1,0 +1,82 @@
+.body-container {
+    height: 100%;
+    width: 100%;
+}
+
+.component-header {
+    padding-top: 10px;
+    margin-top: 30px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.component-header button {
+    margin-right: 2%;
+    background-color: white;
+    border: none;
+    border-radius: 0;
+}
+
+.component-body {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.input-container {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}
+
+.inputSearch {
+    text-align: center;
+    width: 25%;
+    border: none;
+    border-bottom: 1px solid;
+}
+ 
+.table-striped {
+    width: 100%;
+    max-width: 100%;
+    background-color: transparent;
+    margin-bottom: 50px;
+    
+}
+
+tr {
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+}
+
+th, td {
+    padding: 15px;
+}
+
+th {
+    font-size: 16px;
+    cursor: pointer;
+}
+
+td {
+    font-size: 14px;
+    font-weight: 500;
+    background-color: white;
+}
+
+
+.deletebtn-container {
+    text-align: center;
+}
+
+.deletebtn {
+    border-color: white;
+    font-weight: bold;
+}
+
+.loggedUser {
+    text-align: center;
+    margin: 5%;
+}

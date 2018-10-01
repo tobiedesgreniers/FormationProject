@@ -1,0 +1,31 @@
+<div class="page-container">
+  <!-- Navbar Division -->
+  <div class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+
+    <!-- Logo -->
+    <div class="logo-container">
+      <a class="navbar-brand" routerLink="/">
+        <img src="../assets/sprint_logo.jpg" alt="sprint-logo">
+      </a>
+    </div>
+    <a class="navbar-brand" routerLink="/">
+      <h1>Sprint</h1>
+    </a>
+
+    <!-- Navigation Links --> 
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item" *ngIf="!auth.isAuthenticated()">
+        <a class="nav-link" style="cursor: pointer" (click)="auth.login()">Login</a>
+      </li>
+      <li class="nav-item" *ngIf="auth.isAuthenticated()">
+        <a class="nav-link" routerLink="/sprint">Sprints</a>
+      </li>
+      <li class="nav-item" *ngIf="auth.isAuthenticated()">
+        <a class="nav-link" style="cursor: pointer" (click)="goToLogout() || auth.logout()">Logout</a>
+      </li>
+    </ul>
+  </div>
+
+  <router-outlet></router-outlet>
+  
+</div>

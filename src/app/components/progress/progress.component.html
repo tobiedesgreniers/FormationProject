@@ -1,0 +1,30 @@
+<div class="body-container">
+
+  <div class="component-header">
+    <h2>Progress</h2>
+  </div>
+  
+  <div class ="component-body">
+
+    <div class="progress-circle-bar">
+        
+    </div>
+
+    <div class ="component-text">
+      Focus fully on your task!
+    </div>
+
+    <div>
+      <button type="button" class="btn btn-danger" (click)="cancelSprint()">Stop</button>
+    </div>
+  </div>
+
+  <div class ="component-footer">
+
+  </div>
+
+  <div class="loggedUser" *ngIf="auth.isAuthenticated()">
+    <footer>Logged in as {{ profile?.name }}</footer>
+  </div>
+  
+</div>

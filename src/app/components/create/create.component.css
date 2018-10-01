@@ -1,0 +1,62 @@
+.body-container {
+    height: 100%;
+    width: 100%;
+}
+
+.component-header {
+    padding-top: 10px;
+    margin-top: 30px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.component-header button {
+    margin-right: 2%;
+    background-color: white;
+    border: none;
+    border-radius: 0;
+}
+
+.component-body {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+}
+
+.create-container {
+    align-self: center;
+    width: 35%;
+    max-width: 350px;
+    border-radius: 20px;
+}
+
+.create-container hr {
+    width: 65%;
+}
+
+.create-content {
+    margin: 10%;
+}
+
+.create-content div {
+    margin-top: 10%;
+}
+
+
+.create-header {
+    text-align: center;
+}
+
+.create-text {
+    text-align: justify;
+}
+
+.duration, .description, .notify{
+    display: flex;
+    flex-direction: column;
+}
+
+.loggedUser {
+    text-align: center;
+    margin: 5%;
+}

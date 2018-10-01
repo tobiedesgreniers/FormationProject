@@ -1,0 +1,71 @@
+<div class="body-container">
+  <div class="component-header">
+    <button type="button" class="btn" routerLink="/sprint">Past Sprints</button>
+    <button type="button" class="btn" routerLink="/create">New Sprint</button>
+    <hr>
+  </div>
+
+  <div class="component-body">
+    <div class="table-wrapper">
+      <div class="input-container">
+          <input class="inputSearch" placeholder="Filter" [(ngModel)] = "searchText">
+      </div>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th style="width: 10%" (click)="sortTable('duration')">
+              Lenght
+            </th>
+            <th style="width: 10%" (click)="sortTable('status')">
+              Status
+            </th>
+            <th style="width: 10%" (click)="sortTable('createdAt')">
+              Date
+            </th>
+            <th style="width: 10%" (click)="sortTable('startedAt')">
+              Start
+            </th>
+            <th style="width: 10%" (click)="sortTable('finishedAt')">
+              Finish
+            </th>
+            <th style="width: 50%" (click)="sortTable('description')">
+              Description
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let sprint of sprints | orderBy:path:order | filterWith:searchText">
+                <td>{{ sprint?.name }}</td>
+                <td>{{ sprint?.status }}</td>
+                <td>{{ sprint?.createdAt | date:'yyyy-MM-dd'}}</td>
+                <td>{{ sprint?.startedAt | date:'HH:mm:ss'}}</td>
+                <td>{{ sprint?.finishedAt | date: 'HH:mm:ss'}}</td>
+                <td>{{ sprint?.description }}</td>
+              </tr>
+        </tbody>
+
+        <tfoot>
+          
+        </tfoot>
+      </table>
+    </div>
+
+    <div class="hidden-element-wrapper">
+      <div class="deletebtn-container">
+        <button class="btn btn-outline-danger deletebtn" (click)="deleteSprints()">Delete all data</button>
+      </div>
+
+      <div class="modal">
+        //Truc Bootstrap pour l'écran gris s'affichant en arrière plan
+      </div>
+
+    </div>
+  </div>
+
+  <div class="loggedUser" *ngIf="auth.isAuthenticated()">
+    <footer>Logged in as {{ profile?.name }}</footer>
+  </div>
+  
+</div>

@@ -1,0 +1,51 @@
+<div class="body-container">
+  <div class="component-header">
+    <button type="button" class="btn" routerLink="/sprint">Past Sprints</button>
+    <button type="button" class="btn" routerLink="/create">New Sprint</button>
+    <hr>
+  </div>
+
+  <div class="component-body">
+      <div class="create-container shadow-lg">
+        <div class="create-content">
+          <div class="create-header">
+            <h4>Start a sprint!</h4>
+            <hr noshade>
+          </div>
+          <form [formGroup] = "createForm" class="create-form" (ngSubmit)="submitForm(createForm.value)">
+            <div class="selectedSprint">
+              <label>Choose length *</label>
+              <select formControlName="selectedSprint" class="select-form" required>
+                <option value="5ba9052d3979c46528d8976e">Instant (5s)</option>
+                <option value="5ba906e13979c46528d8976f">Very Short (5min)</option>
+                <option value="5ba906f83979c46528d89770">Short (15min)</option>
+                <option value="5ba9076c3979c46528d89771">Pomodoro (25min)</option>
+                <option value="5ba907923979c46528d89772">Long (45min)</option>
+                <option value="5ba907c33979c46528d89773">Very Long (60min)</option>
+              </select>
+            </div>
+
+            <div class="description" required>
+              <label for="description">Description *</label>
+              <textarea formControlName="description" id="description" placeholder="What will you be doing?" rows="4"></textarea>
+            </div>
+
+            <div class="notify">
+              <label for="notify">
+                <input formControlName="notify" type="checkbox" id="notify" ng-model="notify">Notify when completed
+              </label>
+            </div>
+
+            <div class="submit">
+              <button type="submit" class="btn btn-primary" [disabled]="createForm.invalid ">Start</button>
+            </div>
+          </form>
+        </div>
+      </div>
+  </div> 
+
+  <div class="loggedUser" *ngIf="auth.isAuthenticated()">
+    <footer>Logged in as {{ profile?.name }}</footer>
+  </div>
+  
+</div>
