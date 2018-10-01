@@ -16,6 +16,7 @@
             <div class="selectedSprint">
               <label>Choose length *</label>
               <select formControlName="selectedSprint" class="select-form" required>
+                <!-- Values corresponding to _id key of templates stored in the database -->
                 <option value="5ba9052d3979c46528d8976e">Instant (5s)</option>
                 <option value="5ba906e13979c46528d8976f">Very Short (5min)</option>
                 <option value="5ba906f83979c46528d89770">Short (15min)</option>
@@ -32,6 +33,7 @@
 
             <div class="notify">
               <label for="notify">
+                <!-- Notify returning true when checked, but empty when unchecked... needs tuning -->
                 <input formControlName="notify" type="checkbox" id="notify" ng-model="notify">Notify when completed
               </label>
             </div>

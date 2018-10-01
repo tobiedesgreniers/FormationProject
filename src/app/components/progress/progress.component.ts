@@ -30,6 +30,7 @@ export class ProgressComponent implements OnInit {
   
       this.startCountdown(this.sprint.duration);
       
+      //Getting the userProfile to display on the page footer
       if (this.auth.userProfile) {
         this.profile = this.auth.userProfile;
       } 
@@ -40,7 +41,13 @@ export class ProgressComponent implements OnInit {
     })
   }
     
-
+  //Function to count down from the time of a chosen template (currentSprint) to 0
+  //Percentage calculation is also handled in this function
+  //Redirection is handled at the end of the countdown
+  
+  /*
+    Function not completed
+  */
   startCountdown(seconds){
     this.counter = 0
     this.interval = setInterval(() => {
@@ -57,6 +64,10 @@ export class ProgressComponent implements OnInit {
     }, 1000);
   };
 
+  //Function to cancel sprint and post it after update
+  /* 
+    Function not completed
+  */
   cancelSprint(){
     clearInterval(this.interval);
     

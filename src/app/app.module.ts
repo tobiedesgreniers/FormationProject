@@ -1,3 +1,4 @@
+//Normal Imports 
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -5,15 +6,17 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgCircleProgressModule } from 'ng-circle-progress';
-import { DataTableModule } from "angular-6-datatable";
 
+//Custom Imports
 import { AppComponent } from './app.component';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 
+//Services Imports
 import { DataService } from './data.service';
 import { AuthService } from './services/auth.service'
 import { AuthGuardService } from './services/auth.guard.service';
 
+//Pipes Imports
 import { OrderByPipe } from './pipes/order-by.pipe';
 import { FilterWithPipe } from './pipes/filter-with.pipe';
 
@@ -32,7 +35,7 @@ import { FilterWithPipe } from './pipes/filter-with.pipe';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    DataTableModule,
+    //Defining default values for the CircleProgressModule
     NgCircleProgressModule.forRoot({
       radius: 100,
       outerStrokeWidth: 16,
@@ -41,8 +44,6 @@ import { FilterWithPipe } from './pipes/filter-with.pipe';
       innerStrokeColor: "#C7E596",
       animationDuration: 300,
     }),
-
-    // Module de Routing
     AppRoutingModule
   ],
   providers: [

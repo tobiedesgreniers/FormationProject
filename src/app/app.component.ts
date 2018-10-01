@@ -15,6 +15,7 @@ export class AppComponent {
     this.auth.scheduleRenewal();
   }
 
+  //Obsolete code???.... will come back on this one when i'll be back on the authentification part
   goToLogout() {
     window.location.href = 'https://tobiedesgreniers.auth0.com/v2/logout?returnTo=http%3A%2F%2Flocalhost:4200&client_id=WuXQkFErB9vls4TL9iyULjAo05OZi755';
   }

@@ -15,7 +15,8 @@ export class CreateComponent implements OnInit {
   createForm: FormGroup;
   profile: any;
 
-  constructor(private dataService: DataService, private router: Router, private fb: FormBuilder, private auth: AuthService) { 
+  constructor(private dataService: DataService, private router: Router, private fb: FormBuilder, private auth: AuthService) {
+    //Initialization of the FormGroup used for Reactive Form
     this.createForm = this.fb.group({
       'selectedSprint' : [null, Validators.required],
       'description' : [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(200)])],
@@ -27,6 +28,7 @@ export class CreateComponent implements OnInit {
   }
 
   ngOnInit() {
+    //Getting the userProfile to display on the page footer
     if (this.auth.userProfile) {
       this.profile = this.auth.userProfile;
     } else {
@@ -35,7 +37,8 @@ export class CreateComponent implements OnInit {
       });
     }
   }
-
+  
+  //Submit function and redirection to progress component
   submitForm(createForm) {
     this.dataService.createSprint(createForm);
     this.router.navigate(['/progress']);

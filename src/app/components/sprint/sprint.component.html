@@ -14,6 +14,7 @@
       <table class="table table-striped">
         <thead>
           <tr>
+            <!-- Style used here to custom the width of each column -->
             <th style="width: 10%" (click)="sortTable('duration')">
               Lenght
             </th>
@@ -37,13 +38,15 @@
 
         <tbody>
             <tr *ngFor="let sprint of sprints | orderBy:path:order | filterWith:searchText">
-                <td>{{ sprint?.name }}</td>
-                <td>{{ sprint?.status }}</td>
-                <td>{{ sprint?.createdAt | date:'yyyy-MM-dd'}}</td>
-                <td>{{ sprint?.startedAt | date:'HH:mm:ss'}}</td>
-                <td>{{ sprint?.finishedAt | date: 'HH:mm:ss'}}</td>
-                <td>{{ sprint?.description }}</td>
-              </tr>
+              <!-- Interpolation is used to display data. -->
+              <!-- (?) Interrogation mark used to "listen" for changes in the dataset -->
+              <td>{{ sprint?.name }}</td>
+              <td>{{ sprint?.status }}</td>
+              <td>{{ sprint?.createdAt | date:'yyyy-MM-dd'}}</td>
+              <td>{{ sprint?.startedAt | date:'HH:mm:ss'}}</td>
+              <td>{{ sprint?.finishedAt | date: 'HH:mm:ss'}}</td>
+              <td>{{ sprint?.description }}</td>
+            </tr>
         </tbody>
 
         <tfoot>

@@ -4,6 +4,7 @@ const assert = require('assert');
 
 const router = express.Router();
 
+//uri of the database
 const uri = ('mongodb://localhost:27017/sprints');
 
 /* GET home page.
@@ -12,6 +13,7 @@ router.get('/', function(req, res, next) {
 });
 */
 
+//Get all the sprints stored in the database
 router.route('/sprints').get((req, res) => {
   MongoClient.connect(uri, { useNewUrlParser: true }, (err, client) => {
     assert.equal(null, err);
@@ -24,6 +26,7 @@ router.route('/sprints').get((req, res) => {
   });
 });
 
+//Get all the sprint templates stored in the database
 router.route('/templates').get((req, res) => {
   MongoClient.connect(uri, { useNewUrlParser: true }, (err, client) => {
     assert.equal(null, err);
@@ -36,6 +39,7 @@ router.route('/templates').get((req, res) => {
   });
 });
 
+//Post a new sprint to the database
 router.route('/sprints/add').post((req, res) => {
   MongoClient.connect(uri, { useNewUrlParser: true }, (err, client) => {
     var db = client.db('sprints');
@@ -46,6 +50,7 @@ router.route('/sprints/add').post((req, res) => {
   });
 });
 
+//Delete all sprints stored in the database
 router.route('/sprints/delete').get((req, res) => {
   MongoClient.connect(uri, { useNewUrlParser: true }, (err, client) => {
     assert.equal(null, err);
