@@ -47,6 +47,7 @@ router.route('/sprints/add').post((req, res) => {
     db.collection("sprintCollection").insertOne(req.body);
     res.send('Data received:\n' + JSON.stringify(req.body));
     client.close();
+    console.log("Sprint was added");
   });
 });
 

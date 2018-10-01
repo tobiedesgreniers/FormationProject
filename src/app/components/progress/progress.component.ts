@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { DataService } from '../../data.service'
 import { AuthService } from '../../services/auth.service'
@@ -21,7 +22,7 @@ export class ProgressComponent implements OnInit {
 
 
   
-  constructor(private dataService: DataService, private router: Router, private auth: AuthService) { }
+  constructor(private dataService: DataService, private router: Router, private auth: AuthService, private fb: FormBuilder) { }
 
   ngOnInit() {
     this.dataService.getSprintsTemplate()
@@ -52,11 +53,12 @@ export class ProgressComponent implements OnInit {
     this.counter = 0
     this.interval = setInterval(() => {
       this.counter++;
-      this.percent = this.counter / seconds*100
+      this.percent = Math.round((this.counter / seconds*100)*10)/10
       console.log(this.counter);
       console.log(this.percent);
       if(this.counter >= seconds){
 
+        this.sprintCompletion('Completed');
         this.router.navigate(['/sprint']);
         clearInterval(this.interval);
         console.log('Progress timer is finished');
@@ -68,8 +70,22 @@ export class ProgressComponent implements OnInit {
   /* 
     Function not completed
   */
-  cancelSprint(){
+  sprintCompletion(status){
     clearInterval(this.interval);
-    
+    let progressForm = {
+      'status': status,
+      'progress': this.percent,
+      'finishedAt': new Date()
+    };
+    console.log(progressForm);;
+    this.submitForm(progressForm);
+
+    this.router.navigate(['/sprint']);
+
   };
+
+  submitForm(progressForm){
+    this.dataService.updateSprint(progressForm);
+  }
+
 }

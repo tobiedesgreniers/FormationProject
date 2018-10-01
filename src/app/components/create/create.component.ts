@@ -40,7 +40,8 @@ export class CreateComponent implements OnInit {
   
   //Submit function and redirection to progress component
   submitForm(createForm) {
-    this.dataService.createSprint(createForm);
+    this.dataService.createSprint();
+    this.dataService.updateSprint(createForm);
     this.router.navigate(['/progress']);
   
   };
